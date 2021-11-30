@@ -134,7 +134,7 @@ func (r *ElasticWebReconciler) Reconcile(ctx context.Context, req ctrl.Request) 
 
 	realReplicas := *dp.Spec.Replicas
 
-	logrus.Info("expectReplicas [%d], realReplicas [%d]", expectReplicas, realReplicas)
+	logrus.Infof("expectReplicas [%d], realReplicas [%d]", expectReplicas, realReplicas)
 
 	if err = r.Update(ctx, dp); err != nil {
 		logrus.Errorf("Update err=%v", err)

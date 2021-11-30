@@ -1,6 +1,19 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: sai-test
+  labels:
+    name: test
+---
+
 apiVersion: k8s.com.13sai/v1
 kind: ElasticWeb
 metadata:
+  namespace: sai-test
   name: elasticweb-sample
 spec:
-  # TODO(user): Add fields here
+  # Add fields here
+  image: nginx:1.20.2-alpine
+  port: 80
+  singleQPS: 1000
+  totalQPS: 8800
